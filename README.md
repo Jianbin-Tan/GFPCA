@@ -1,6 +1,6 @@
 #  Graphical Functional Principal Component Analysis (GFPCA)
 
-This file contains the data, and code from the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang.
+This file contains the data, and codes from the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -13,16 +13,16 @@ We collected hourly PM2.5 concentration readings from 24 monitoring stations loc
 The data necessary to reproduce our results is available.
 
 ### 3) Data dictionary
-The dataset is included in "fda_dat.rda" within the "Data" file. It contains hourly measurements of PM2.5 concentration from 24 monitoring stations, covering a period of 60 days. Additionally, the dataset includes information about the monitoring stations, such as station names, longitude, latitude, province, and city.
+The dataset is included in "fda_dat.rda" within the "Data" file. It contains hourly measurements of PM2.5 concentration from 24 monitoring stations, covering a period of 60 days. Additionally, the dataset includes information about the monitoring stations, such as station names, longitudes, latitudes, provinces, and cities.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 2. Code
 ### 1) Abstract
-We provide the core code of this article in "Function.R". Besides, we also include a help document named "GFPCA.pdf" for the functions in "Function.R", and provide an example code in "Example code.R" to use the R functions.
+We provide the core codes of this article in "Function.R". Besides, we also include a help document named "GFPCA.pdf" for the functions in "Function.R" and provide an example code in "Example code.R" to use the functions.
 
 ### 2) Reproducibility
 - The R function "GFPCA" in "Function.R" can be used to implement GFPCA in this article. 
-- The code to reconstruct curves is presented in "Example code.R".
+- The codes to reconstruct curves are presented in "Example code.R".
 
 
 
