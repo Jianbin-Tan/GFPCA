@@ -18,10 +18,11 @@ The dataset is included in "fda_dat.rda" within the "Data" file. It contains hou
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 2. Code
 ### 1) Abstract
-We include a help document named "GFPCA.pdf" for the functions in "Function.R", and provide an example code in "Example code.R" to use the R function "GFPCA".
+We provide the core code of this article in "Function.R". We also include a help document named "GFPCA.pdf" for the functions in "Function.R", and provide an example code in "Example code.R" to use the R functions.
 
 ### 2) Reproducibility
-- The R function "GFPCA" can be used to implement GFPCA in the article. 
+- The R function "GFPCA" in "Function.R" can be used to implement GFPCA in this article. 
+- The code to reconstruct curves is presented in "Example code.R".
 
 
 
