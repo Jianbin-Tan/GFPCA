@@ -1,6 +1,6 @@
 #  Graphical Functional Principal Component Analysis (GFPCA)
 
-This file contains the data, and codes from the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang.
+This file contains the data, codes, and proof from the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -23,6 +23,11 @@ We provide the core codes of this article in "Function.R". Besides, we also incl
 ### 2) Reproducibility
 - The R function "GFPCA" in "Function.R" can be used to implement GFPCA in this article. 
 - The codes to reconstruct curves are presented in "Example code.R".
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 3. Proof
+### 1) Abstract
+We provide the proof of this article in "Supplementary Materials of Graphical Principal Component Analysis of Multivariate Functional Time Series.pdf". 
 
 
 
