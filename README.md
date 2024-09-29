@@ -2,6 +2,19 @@
 
 This README accompanies the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" authored by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang. The paper is accessible at [Taylor & Francis Online](https://www.tandfonline.com/doi/full/10.1080/01621459.2024.2302198).
 
+## Citation
+If you use this data or methodology in your work, please cite:
+
+```bibtex
+@article{tan2024graphical,
+  title={Graphical principal component analysis of multivariate functional time series},
+  author={Tan, Jianbin and Liang, Decai and Guan, Yongtao and Huang, Hui},
+  journal={Journal of the American Statistical Association},
+  pages={1--24},
+  year={2024},
+  publisher={Taylor & Francis}
+}
+
 ## 1. Data
 ### Abstract
 
