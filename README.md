@@ -1,6 +1,6 @@
 # Graphical Functional Principal Component Analysis (GFPCA)
 
-This README accompanies the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" authored by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang. The paper is accessible at [Taylor & Francis Online](https://www.tandfonline.com/doi/full/10.1080/01621459.2024.2302198).
+This README accompanies the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" authored by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang. The paper is accessible at [Journal of the American Statistical Association](https://www.tandfonline.com/doi/full/10.1080/01621459.2024.2302198).
 
 ## 1. Data
 ### Abstract
@@ -28,7 +28,7 @@ The primary codebase for this paper is provided in "Function.R". Additionally, a
 The proofs supporting the methodologies used in this paper are detailed in "Supplementary Materials of Graphical Principal Component Analysis of Multivariate Functional Time Series.pdf".
 
 ## Citation
-If you use this data or methodology in your work, please cite:
+If you use this code, data, or methodology in your work, please cite:
 
 ```bibtex
 @article{tan2024graphical,
