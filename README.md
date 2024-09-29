@@ -1,34 +1,28 @@
-#  Graphical Functional Principal Component Analysis (GFPCA)
+# Graphical Functional Principal Component Analysis (GFPCA)
 
-This file contains the data, codes, and proof from the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang, available at https://www.tandfonline.com/doi/full/10.1080/01621459.2024.2302198.
+This README accompanies the paper "Graphical Principal Component Analysis of Multivariate Functional Time Series" authored by Jianbin Tan, Decai Liang, Yongtao Guan, and Hui Huang. The paper is accessible at [Taylor & Francis Online](https://www.tandfonline.com/doi/full/10.1080/01621459.2024.2302198).
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 1.  Data
-### 1) Abstract
+## 1. Data
+### Abstract
 
-We collected hourly PM2.5 concentration readings from 24 monitoring stations located in three cities in China during the winter of 2016. The dataset covers a total of 60 days, and we have applied a square-root transformation to stabilize the variance.
+This dataset comprises hourly PM2.5 concentration readings collected from 24 monitoring stations across three cities in China during the winter of 2016. To stabilize variance, a square-root transformation was applied to the data. The study spans a total of 60 days.
 
-### 2) Availability
-The data necessary to reproduce our results is available.
+### Availability
+All data required to replicate our findings are available.
 
-### 3) Data dictionary
-The dataset is included in "fda_dat.rda" within the "Data" file. It contains hourly measurements of PM2.5 concentration from 24 monitoring stations, covering a period of 60 days. Additionally, the dataset includes information about the monitoring stations, such as station names, longitudes, latitudes, provinces, and cities.
+### Data Dictionary
+The dataset, stored in "fda_dat.rda" within the "Data" directory, includes:
+- Hourly PM2.5 concentration measurements from 24 monitoring stations over 60 days.
+- Descriptive details about each monitoring station, including station name, coordinates (longitude and latitude), province, and city.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 2. Code
-### 1) Abstract
-We provide the core codes of this article in "Function.R". Besides, we also include a help document named "GFPCA.pdf" for the functions in "Function.R" and provide an example code in "Example code.R" to use the functions.
+### Abstract
+The primary codebase for this paper is provided in "Function.R". Additionally, a detailed guide, "GFPCA.pdf", explains the functions within "Function.R". An illustrative example demonstrating the use of these functions is available in "Example code.R".
 
-### 2) Reproducibility
-- The R function "GFPCA" in "Function.R" can be used to implement GFPCA in this article. 
-- The codes to reconstruct curves are presented in "Example code.R".
+### Reproducibility
+- The "GFPCA" function in "Function.R" implements the GFPCA method described in this paper.
+- Curve reconstruction procedures are detailed in "Example code.R".
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 3. Proof
-### 1) Abstract
-We provide the proof of this article in "Supplementary Materials of Graphical Principal Component Analysis of Multivariate Functional Time Series.pdf". 
-
-
-
-
-
+### Abstract
+The proofs supporting the methodologies used in this paper are detailed in "Supplementary Materials of Graphical Principal Component Analysis of Multivariate Functional Time Series.pdf".
