@@ -5,14 +5,14 @@ This README accompanies the paper "Graphical Principal Component Analysis of Mul
 ## Citation
 If you find our code, data, or methodology useful, you may cite us as:
 
-  @article{tan2024graphical,
-    title={Graphical principal component analysis of multivariate functional time series},
-    author={Tan, Jianbin and Liang, Decai and Guan, Yongtao and Huang, Hui},
-    journal={Journal of the American Statistical Association},
-    pages={1--24},
-    year={2024},
-    publisher={Taylor & Francis}
-  }
+   @article{tan2024graphical,
+     title={Graphical principal component analysis of multivariate functional time series},
+     author={Tan, Jianbin and Liang, Decai and Guan, Yongtao and Huang, Hui},
+     journal={Journal of the American Statistical Association},
+     pages={1--24},
+     year={2024},
+     publisher={Taylor & Francis}
+   }
 
 ---
 ## 1. Data
