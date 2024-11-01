@@ -1,6 +1,8 @@
 # Setting address
-address <- here::here()
-setwd(address)
+rm(list=ls())
+# set working directory to be where the current script is located
+mydir <- dirname(rstudioapi::getSourceEditorContext()$path)
+setwd(mydir)
 
 # Importing data and function
 sep <- T
