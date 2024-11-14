@@ -91,7 +91,7 @@ GFPCA <- function(MFTS, Lt, Dynamic, Max.comp, FVE, Mean.zero){
   
   cov_matrix <- eigen_pre(subject_length, time_length, dmean_smo_fda, q, r)
   sp_matrix <- sp_tran(r, grid_freq, cov_matrix)
-  result <- eigen_func_dyn(sp_matrix, grid_freq, FVE, Max.comp)
+  result <- eigen_func_dyn(sp_matrix, grid_freq, FVE, Max.comp, time_length)
   
   comp_num <- result$comp_num
   eigen_value_freq <- result$eigen_value_freq
@@ -370,19 +370,21 @@ basis_f <- function(x, lag, k, comp_length){
 }
 
 ##  Generating functional data
-if(sep == T){
-  fda_gen <- function(x, i, j, mean_sample, comp_length, score, lag, subject_length){
-    as.numeric(ture_mean(x, mean_sample) +
-                 rowsums(sapply(1:comp_length, function(k){
-                   basis_f(x, lag, k, comp_length) %*% score[k,i,j:(j + 2)]
-                 })))
-  }
-}else{
-  fda_gen <- function(x, i, j, mean_sample, comp_length, score, lag, subject_length){
-    as.numeric(ture_mean(x, mean_sample) + 
-                 rowsums(sapply(1:comp_length, function(k){
-                   (basis_f(x, lag, k, comp_length) * (5 * sin(i * x / subject_length) + 1)) %*% score[k,i,j:(j + 2)]
-                 })))
+if(exists("sep")){
+  if(sep == T){
+    fda_gen <- function(x, i, j, mean_sample, comp_length, score, lag, subject_length){
+      as.numeric(ture_mean(x, mean_sample) +
+                   rowsums(sapply(1:comp_length, function(k){
+                     basis_f(x, lag, k, comp_length) %*% score[k,i,j:(j + 2)]
+                   })))
+    }
+  }else{
+    fda_gen <- function(x, i, j, mean_sample, comp_length, score, lag, subject_length){
+      as.numeric(ture_mean(x, mean_sample) + 
+                   rowsums(sapply(1:comp_length, function(k){
+                     (basis_f(x, lag, k, comp_length) * (5 * sin(i * x / subject_length) + 1)) %*% score[k,i,j:(j + 2)]
+                   })))
+    }
   }
 }
 
@@ -507,8 +509,9 @@ eigen_func_sta <- function(cov_matrix_0, sel_eig, max_comp){
 #' @param grid_freq The frequencies of the estimated spectral density kernels.
 #' @param sel_eig The fraction of variance explained.
 #' @param max_comp The maximum number of components.
+#' @param time_length The time length of MFTS.
 #' @return Estimations of the number of components and the coefficients of functional filters.
-eigen_func_dyn <- function(sp_matrix, grid_freq, sel_eig, max_comp){
+eigen_func_dyn <- function(sp_matrix, grid_freq, sel_eig, max_comp, time_length){
   
   ### Eigen-decomposition of spectral density matrix for different frequencies
   eigen_decom <- lapply(1:length(grid_freq), function(k){
@@ -1016,13 +1019,13 @@ first_est <- function(x_fda, fda, mean_zero, max_comp, sel_eig){
   Sep_dyn <- lapply(1:subject_length, function(i){
     cov_matrix <- eigen_pre(1, time_length, array(dmean_smo_fda[,i,], c(dim(dmean_smo_fda)[1], 1, dim(dmean_smo_fda)[3])), q, r)
     sp_matrix <- sp_tran(r, grid_freq, cov_matrix)
-    return(eigen_func_dyn(sp_matrix, grid_freq, sel_eig, max_comp))
+    return(eigen_func_dyn(sp_matrix, grid_freq, sel_eig, max_comp, time_length))
   })
   
   ### Weakly-separable FPCA
   cov_matrix <- eigen_pre(subject_length, time_length, dmean_smo_fda, q, r)
   sp_matrix <- sp_tran(r, grid_freq, cov_matrix)
-  result <- eigen_func_dyn(sp_matrix, grid_freq, sel_eig, max_comp)
+  result <- eigen_func_dyn(sp_matrix, grid_freq, sel_eig, max_comp, time_length)
   
   comp_num <- result$comp_num
   eigen_value_freq <- result$eigen_value_freq

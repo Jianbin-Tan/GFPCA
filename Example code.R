@@ -5,20 +5,54 @@ mydir <- dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(mydir)
 
 # Importing data and function
-sep <- T
 source("Functions.R")
 load("Data/fda_dat.rda")
 
-MFTS <- fda_dat$fda
-time_length <- dim(MFTS)[3]
-subject_length <- dim(MFTS)[2]
-Lt <- seq(0, 1, length.out = dim(MFTS)[1] + 1)[-(dim(MFTS)[1] + 1)]
+MFTS <- fda_dat$fda # Multivariate Functional Time Series Data
+Lt <- seq(0, 1, length.out = dim(MFTS)[1] + 1)[-(dim(MFTS)[1] + 1)] # Regular time girds on [0,1]
 
 # Running GFPCA
 Result_dyn <- GFPCA(MFTS, Lt, Dynamic = T, Max.comp = 8, FVE = 0.8, Mean.zero = F)
 Result_sta <- GFPCA(MFTS, Lt, Dynamic = F, Max.comp = 8, FVE = 0.8, Mean.zero = F)
 
+# Remarks for the function "GFPCA" 
+#' Graphical Functional Principal Component Analysis (GFPCA)
+#' 
+#' @description
+#' A function to implement graphical FPCAs.
+#'
+#' @details
+#' This is a generic function to implement graphical versions of DFPCA 
+#' or SFPCA for multivariate functional time series (MFTS). The function requires 
+#' that the MFTS data are densely and regularly observed. 
+#' @param MFTS A Z*p*J array containing the regularly observed MFTS data, where
+#' Z is the number of observed time points, p is the dimension of MFTS, and
+#' J is the time length of MFTS.
+#' @param Lt A vector containing the observed time points of MFTS. We require
+#' the time points to be contained in the interval [0,1]. 
+#' @param Dynamic A logical evaluating to TRUE or FALSE indicating whether 
+#' the graphical DFPCA or SFPCA should be conducted.
+#' @param Max.comp The maximum number of components.
+#' @param FVE A numeric in [0,1] indicating the fraction of variance explained 
+#' for determining the number of components. If FVE = 0, the number of component 
+#' is selected by the ratio of variance explained.
+#' @param Mean.zero A logical evaluating to TRUE or FALSE indicating whether 
+#' the mean functions of MFTS are zero.
+#' @return A list with components
+#' \item{comp_num}{Number of components.}
+#' \item{xi_dyn_IN or xi_sta_IN}{A list of FPC scores computed by integration.}
+#' \item{xi_dyn_CE or xi_sta_CE}{A list of FPC scores computed by conditional expectation.}
+#' \item{mean_function}{A list of mean functions of MFTS, where Lt contains the time grid of the estimated values.}
+#' \item{Functional filters or eigenfunctions}{A list of the estimated functional filters (or eigenfunctions), where Lt contains the time grid of the estimated values.}
+#' \item{eigen_matrix}{A p*p*(J/2)*comp_num array containing the estimated eigenmatrices for different frequences.}
+#' \item{Phi}{A p*p*(J/2)*comp_num array containing the estimated inverse of eigenmatrices by incorporating graph constraints.}
+#' \item{mea_error}{A vector containing the estimated variances of the measurement errors.}
+#' \item{dmean_smo_fda}{The pre-smoothed coefficients after removing mean trends.}
+
 ## Curves' reconstruction
+subject_length <- dim(MFTS)[2] # Dimension
+time_length <- dim(MFTS)[3] # Temporal Length
+
 fit_fda <- sapply(1:subject_length, function(i){
   sapply(54:60, function(j){
 
@@ -124,3 +158,4 @@ ggplot(cor_dat) +
         # text = element_text(family = "STHeiti"),
         plot.title = element_text(hjust = 0.5),
         axis.text.x = element_text(angle = 0)) 
+
